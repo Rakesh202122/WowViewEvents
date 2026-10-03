@@ -146,113 +146,90 @@
                 <a href="#home" class="flex items-center gap-3 group" onclick="navigateTo('home')">
                     <div class="relative w-12 h-12 flex items-center justify-center bg-gradient-to-br from-blue-900 to-black p-1.5 rounded-xl border border-wveCyan/40 shadow-[0_0_15px_rgba(0,102,255,0.4)] group-hover:shadow-[0_0_25px_rgba(0,240,255,0.8)] transition-all">
                         <!-- Custom WVE Logo SVG match -->
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" class="w-full h-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 200" class="w-full h-auto">
   <defs>
-    <!-- Metallic Blue Outer Gradient -->
-    <linearGradient id="wveBlueBase" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#00BAFF" />
+    <!-- Metallic Blue Gradient (Upper Light -> Lower Deep Blue) -->
+    <linearGradient id="wveBlueBase" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00ACFF" />
       <stop offset="35%" stop-color="#0066FF" />
       <stop offset="70%" stop-color="#0038A8" />
-      <stop offset="100%" stop-color="#001855" />
+      <stop offset="100%" stop-color="#001C66" />
     </linearGradient>
 
-    <!-- Metallic Highlight Gradient -->
-    <linearGradient id="wveBlueHighlight" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#73E6FF" />
-      <stop offset="50%" stop-color="#0077FF" />
-      <stop offset="100%" stop-color="#002277" />
+    <!-- Bevel Edge Specular Highlight -->
+    <linearGradient id="wveMetallicGleam" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A6F0FF" />
+      <stop offset="30%" stop-color="#0077FF" />
+      <stop offset="70%" stop-color="#003399" />
+      <stop offset="100%" stop-color="#001144" />
     </linearGradient>
 
-    <!-- Bevel Inner Light -->
-    <linearGradient id="bevelLight" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.8"/>
-      <stop offset="40%" stop-color="#00D2FF" stop-opacity="0.3"/>
-      <stop offset="100%" stop-color="#001033" stop-opacity="0.9"/>
-    </linearGradient>
-
-    <!-- 3D Red Dot Spherical Gradient -->
-    <radialGradient id="wveRedDot" cx="35%" cy="35%" r="65%">
-      <stop offset="0%" stop-color="#FF8899" />
-      <stop offset="30%" stop-color="#FF0022" />
-      <stop offset="75%" stop-color="#B30012" />
+    <!-- 3D Glossy Red Sphere Gradient -->
+    <radialGradient id="wveRed3DSphere" cx="35%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#FF99AA" />
+      <stop offset="25%" stop-color="#FF0022" />
+      <stop offset="65%" stop-color="#CC0011" />
       <stop offset="100%" stop-color="#550000" />
     </radialGradient>
 
-    <!-- 3D Drop Shadow Effect -->
-    <filter id="wveShadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="3" dy="5" stdDeviation="4" flood-color="#001133" flood-opacity="0.5"/>
+    <!-- Soft Drop Shadow -->
+    <filter id="wveGlowShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="4" stdDeviation="3" flood-color="#00081A" flood-opacity="0.4"/>
     </filter>
   </defs>
 
-  <g filter="url(#wveShadow)">
-    <!-- ==================== 1. 'W' SQUARE & MOUNTAINS ICON ==================== -->
-    <g transform="translate(40, 20)">
-      <!-- Outer Square Frame -->
-      <rect x="0" y="0" width="170" height="170" rx="4" ry="4" fill="url(#wveBlueBase)" stroke="url(#bevelLight)" stroke-width="3"/>
-      <rect x="12" y="12" width="146" height="146" rx="2" ry="2" fill="#FFFFFF"/>
-      <rect x="18" y="18" width="134" height="134" fill="url(#wveBlueHighlight)" opacity="0.15"/>
+  <g filter="url(#wveGlowShadow)">
+    <!-- ==================== 1. 'W' SQUARE BOX & MOUNTAINS ==================== -->
+    <g transform="translate(10, 10)">
+      <!-- Outer Square Bevelled Frame -->
+      <rect x="0" y="0" width="180" height="180" rx="3" ry="3" fill="url(#wveMetallicGleam)" stroke="#003399" stroke-width="1.5"/>
+      <rect x="10" y="10" width="160" height="160" rx="1" ry="1" fill="#FFFFFF"/>
 
-      <!-- Inner Frame Border -->
-      <rect x="16" y="16" width="138" height="138" fill="none" stroke="url(#wveBlueBase)" stroke-width="7"/>
+      <!-- Inner Thin Outline Border -->
+      <rect x="15" y="15" width="150" height="150" fill="none" stroke="url(#wveBlueBase)" stroke-width="5"/>
 
-      <!-- Red Spherical Dot (Sun) -->
-      <circle cx="112" cy="62" r="21" fill="url(#wveRedDot)"/>
+      <!-- 3D Red Sphere / Sun -->
+      <circle cx="132" cy="62" r="21" fill="url(#wveRed3DSphere)"/>
 
-      <!-- Mountains Group -->
-      <!-- Back / Left Main Mountain -->
-      <path d="M 16 154 L 68 82 L 102 126 L 85 154 Z" fill="url(#wveBlueBase)"/>
-      <path d="M 68 82 L 102 126 L 85 154 L 16 154 Z" fill="url(#wveBlueHighlight)"/>
-      <!-- Snow/Highlight on Left Peak -->
-      <path d="M 68 82 L 58 98 L 66 102 L 76 94 Z" fill="#FFFFFF" opacity="0.9"/>
-
-      <!-- Right Secondary Mountain -->
-      <path d="M 75 154 L 115 104 L 154 154 Z" fill="url(#wveBlueBase)"/>
-      <path d="M 115 104 L 154 154 L 105 154 Z" fill="url(#wveBlueHighlight)"/>
-      <!-- Snow/Highlight on Right Peak -->
-      <path d="M 115 104 L 108 115 L 115 118 L 123 113 Z" fill="#FFFFFF" opacity="0.9"/>
+      <!-- Twin Mountain Shape Base -->
+      <path d="M 15 165 L 72 82 L 108 132 L 126 108 L 165 165 Z" fill="url(#wveBlueBase)"/>
+      
+      <!-- Mountain Facet Light Bevels -->
+      <path d="M 72 82 L 15 165 L 72 165 Z" fill="url(#wveMetallicGleam)" opacity="0.6"/>
+      <path d="M 126 108 L 108 132 L 126 165 L 165 165 Z" fill="url(#wveMetallicGleam)" opacity="0.5"/>
+      
+      <!-- Left Peak Inner Ridge Crease -->
+      <path d="M 72 82 L 58 115 L 72 165" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.8"/>
     </g>
 
     <!-- ==================== 2. INVERTED TRIANGLE 'V' ==================== -->
-    <g transform="translate(255, 20)">
-      <!-- Outer Solid Triangle -->
-      <polygon points="0,0 150,0 75,170" fill="url(#wveBlueBase)" stroke="url(#bevelLight)" stroke-width="2"/>
-      <!-- Inner Cutout Triangle -->
-      <polygon points="32,22 118,22 75,120" fill="#FFFFFF"/>
-      <!-- Inner Bevel Shadow -->
-      <polygon points="32,22 118,22 75,120" fill="url(#wveBlueBase)" opacity="0.2"/>
+    <g transform="translate(230, 10)">
+      <!-- Outer Metallic Triangle -->
+      <polygon points="0,0 180,0 90,180" fill="url(#wveMetallicGleam)"/>
+      
+      <!-- Inner Triangle Cutout -->
+      <polygon points="32,22 148,22 90,138" fill="#FFFFFF"/>
+      
+      <!-- Bevel Inner Gradient Shade -->
+      <polygon points="32,22 148,22 90,138" fill="url(#wveBlueBase)" opacity="0.15"/>
+      
+      <!-- Bevel Border Trim -->
+      <polygon points="0,0 180,0 90,180" fill="none" stroke="url(#wveBlueBase)" stroke-width="4"/>
     </g>
 
-    <!-- ==================== 3. STYLIZED 'E' ==================== -->
-    <g transform="translate(440, 20)">
-      <!-- Top Horizontal Wing -->
-      <polygon points="0,0 150,0 120,38 0,38" fill="url(#wveBlueBase)"/>
-      <polygon points="0,0 150,0 145,6 0,6" fill="#FFFFFF" opacity="0.6"/>
+    <!-- ==================== 3. STYLIZED 'E' (3 SLANTED BARS) ==================== -->
+    <g transform="translate(450, 10)">
+      <!-- Top Long Slanted Bar -->
+      <polygon points="0,0 180,0 148,42 0,42" fill="url(#wveMetallicGleam)"/>
+      <polygon points="0,0 180,0 174,7 0,7" fill="#FFFFFF" opacity="0.7"/>
 
-      <!-- Middle Horizontal Wing -->
-      <polygon points="0,66 125,66 98,104 0,104" fill="url(#wveBlueBase)"/>
-      <polygon points="0,66 125,66 120,71 0,71" fill="#FFFFFF" opacity="0.6"/>
+      <!-- Middle Short Slanted Bar -->
+      <polygon points="0,68 122,68 94,108 0,108" fill="url(#wveBlueBase)"/>
+      <polygon points="0,68 122,68 116,74 0,74" fill="#FFFFFF" opacity="0.7"/>
 
-      <!-- Bottom Horizontal Wing -->
-      <polygon points="0,132 150,132 120,170 0,170" fill="url(#wveBlueBase)"/>
-      <polygon points="0,132 150,132 145,138 0,138" fill="#FFFFFF" opacity="0.6"/>
-
-      <!-- Left Vertical Joining Spine -->
-      <polygon points="0,0 28,0 28,170 0,170" fill="url(#wveBlueHighlight)"/>
-    </g>
-
-    <!-- ==================== 4. TEXT "WOW VIEW EVENTS" ==================== -->
-    <g transform="translate(350, 268)">
-      <text x="0" y="0" 
-            text-anchor="middle" 
-            font-family="'Montserrat', 'Arial Black', sans-serif" 
-            font-weight="900" 
-            font-size="44" 
-            letter-spacing="7" 
-            fill="url(#wveBlueBase)" 
-            stroke="url(#bevelLight)" 
-            stroke-width="1">
-        WOW VIEW EVENTS
-      </text>
+      <!-- Bottom Long Slanted Bar -->
+      <polygon points="0,138 172,138 140,180 0,180" fill="url(#wveMetallicGleam)"/>
+      <polygon points="0,138 172,138 166,145 0,145" fill="#FFFFFF" opacity="0.7"/>
     </g>
   </g>
 </svg>
